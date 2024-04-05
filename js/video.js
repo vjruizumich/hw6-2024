@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
 
 	var slider = document.getElementById("slider");
 	var currentVolume = document.getElementById("volume");
-	var muteButton = this.document.querySelector("#mute");
+	var muteButton = document.querySelector("#mute");
 
 	slider.addEventListener("input", function() {
 		var volume = slider.value;
@@ -22,7 +22,7 @@ window.addEventListener("load", function() {
 	});
 
 	muteButton.addEventListener("click", function() {
-		if (video.volume === 0) {
+		if (video.volume < 0.01) {
 			video.volume = currentVolume.dataset.volume || 1;
 			muteButton.textContent = "Mute";
 		} else {
