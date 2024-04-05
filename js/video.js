@@ -11,6 +11,7 @@ window.addEventListener("load", function() {
 
 	var slider = document.getElementById("slider");
 	var currentVolume = document.getElementById("volume");
+	var muteButton = this.document.querySelector("#mute");
 
 	slider.addEventListener("input", function() {
 		var volume = slider.value;
@@ -20,19 +21,20 @@ window.addEventListener("load", function() {
 		video.volume = volume / 100;
 	});
 
-	document.querySelector("#mute").addEventListener("click", function() {
-		video.volume = 0;
-		volume = 0;
+	muteButton.addEventListener("click", function() {
+		if (video.volume === 0) {
+			video.volume = currentVolume.dataset.volume || 1;
+			muteButton.textContent = "Mute";
+		} else {
+			currentVolume.dataset.volume = video.volume;
+			video.volume = 0;
+			muteButton.textContent = "Unmute";
+		}
+
+		var volume = video.volume * 100;
 		slider.value = volume;
 		currentVolume.textContent = volume + "%";
-		currentVolume = volume;
-		console.log("Volume muted to " + video.volume + "%");
-		console.log("Volume muted to " + volume + "%");
-		console.log("Volume muted to " + currentVolume);
-
-		
-
-
+		console.log("Volume unmuted to " + volume + "%");
 
 	})
 
