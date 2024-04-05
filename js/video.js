@@ -17,12 +17,16 @@ window.addEventListener("load", function() {
 		currentVolume.textContent = volume + "%";
 		console.log("Current volume is " + volume + "%");
 
-		volume = volume / 100;
+		video.volume = volume / 100;
 	});
 
 	document.querySelector("#mute").addEventListener("click", function() {
 		video.volume = 0;
+		volume = 0;
+		console.log("Volume muted to " + video.volume + "%");
 		console.log("Volume muted to " + volume + "%");
+
+
 
 		slider.value = 0;
 		currentVolume.textContent = volume + "%";
