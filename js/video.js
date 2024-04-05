@@ -23,13 +23,17 @@ window.addEventListener("load", function() {
 	document.querySelector("#mute").addEventListener("click", function() {
 		video.volume = 0;
 		volume = 0;
+		slider.value = volume;
+		currentVolume.textContent = volume + "%";
+		currentVolume = volume;
 		console.log("Volume muted to " + video.volume + "%");
 		console.log("Volume muted to " + volume + "%");
+		console.log("Volume muted to " + currentVolume);
+
+		
 
 
 
-		slider.value = 0;
-		currentVolume.textContent = volume + "%";
 	})
 
 	document.querySelector("#vintage").addEventListener("click", function() {
