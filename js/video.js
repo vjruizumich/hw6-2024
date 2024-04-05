@@ -20,6 +20,24 @@ window.addEventListener("load", function() {
 		video.volume = volume / 100;
 	});
 
+	document.querySelector("#mute").addEventListener("click", function() {
+		video.volume = 0;
+		console.log("Volume muted to " + video.volume);
+
+		slider.value = 0;
+		currentVolume.textContent = "0%";
+	})
+
+	document.querySelector("#vintage").addEventListener("click", function() {
+		video.classList.add("oldSchool");
+		console.log("Vintage style applied");
+	});
+
+	document.querySelector("#orig").addEventListener("click", function() {
+		video.classList.remove("oldSchool");
+		console.log("Original style applied");
+	});
+
 });
 
 document.querySelector("#play").addEventListener("click", function() {
@@ -44,7 +62,14 @@ document.querySelector("#faster").addEventListener("click", function() {
 
 document.querySelector("#skip").addEventListener("click", function() {
 	video.currentTime += 10;
-	console.log("")
+	console.log("Video skipped ahead " + video.currentTime);
 });
+
+video.addEventListener("ended", function() {
+	video.currentTime = 0;
+	console.log("Video has returned to the start at " + video.currentTime + "seconds");
+})
+
+
 
 
