@@ -17,15 +17,15 @@ window.addEventListener("load", function() {
 		currentVolume.textContent = volume + "%";
 		console.log("Current volume is " + volume + "%");
 
-		video.volume = volume / 100;
+		volume = volume / 100;
 	});
 
 	document.querySelector("#mute").addEventListener("click", function() {
 		video.volume = 0;
-		console.log("Volume muted to " + video.volume);
+		console.log("Volume muted to " + volume + "%");
 
 		slider.value = 0;
-		currentVolume.textContent = "0%";
+		currentVolume.textContent = volume + "%";
 	})
 
 	document.querySelector("#vintage").addEventListener("click", function() {
