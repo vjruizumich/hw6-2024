@@ -38,37 +38,39 @@ window.addEventListener("load", function() {
 		console.log("Original style applied");
 	});
 
+	document.querySelector("#play").addEventListener("click", function() {
+		video.play();
+		console.log("Play Video");
+	});
+	
+	document.querySelector("#pause").addEventListener("click", function() {
+		video.pause();
+		console.log("Pause Video");
+	});
+	
+	document.querySelector("#slower").addEventListener("click", function() {
+		video.playbackRate -= 0.1;
+		console.log("Speed slowed to " + video.playbackRate);
+	});
+	
+	document.querySelector("#faster").addEventListener("click", function() {
+		video.playbackRate += 0.1;
+		console.log("Speed increased to " + video.playbackRate);
+	});
+	
+	document.querySelector("#skip").addEventListener("click", function() {
+		video.currentTime += 10;
+		console.log("Video skipped ahead " + video.currentTime);
+	});
+	
+	video.addEventListener("ended", function() {
+		video.currentTime = 0;
+		console.log("Video has returned to the start at " + video.currentTime + "seconds");
+	})
+
 });
 
-document.querySelector("#play").addEventListener("click", function() {
-	video.play();
-	console.log("Play Video");
-});
 
-document.querySelector("#pause").addEventListener("click", function() {
-	video.pause();
-	console.log("Pause Video");
-});
-
-document.querySelector("#slower").addEventListener("click", function() {
-	video.playbackRate -= 0.1;
-	console.log("Speed slowed to " + video.playbackRate);
-});
-
-document.querySelector("#faster").addEventListener("click", function() {
-	video.playbackRate += 0.1;
-	console.log("Speed increased to " + video.playbackRate);
-});
-
-document.querySelector("#skip").addEventListener("click", function() {
-	video.currentTime += 10;
-	console.log("Video skipped ahead " + video.currentTime);
-});
-
-video.addEventListener("ended", function() {
-	video.currentTime = 0;
-	console.log("Video has returned to the start at " + video.currentTime + "seconds");
-})
 
 
 
